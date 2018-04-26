@@ -34,6 +34,7 @@ remote_types = {
     'm': 'multicast',
     'b': 'broadcast',
     '-': 'netaddr',
+    's': 'server'
 }
 
 # Status codes:
@@ -105,7 +106,7 @@ def main(argv):
         delay_metrics[common_labels] = float(metric_match.group('delay'))
         offset_metrics[common_labels] = float(metric_match.group('offset'))
         jitter_metrics[common_labels] = float(metric_match.group('jitter'))
- 
+
     print_prometheus('peer_status', peer_status_metrics)
     print_prometheus('delay_milliseconds', delay_metrics)
     print_prometheus('offset_milliseconds', offset_metrics)
